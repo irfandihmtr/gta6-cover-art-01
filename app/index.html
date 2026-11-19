@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Nights — Cover Art Maker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Neon <span>Nights</span></div>
+  <p class="tagline">Turn your photos into a sunset-city cover poster.</p>
+</header>
+
+<main class="workspace">
+  <section class="stage" id="stage">
+    <canvas id="poster" width="1080" height="1350"></canvas>
+    <p class="hint" id="dragHint">Drag the poster to pan the selected photo.</p>
+  </section>
+
+  <aside class="controls">
+    <div class="group">
+      <h2>Layout</h2>
+      <div class="segmented" id="layoutPicker" role="group" aria-label="Layout">
+        <button type="button" data-value="grid" class="on">Grid</button>
+        <button type="button" data-value="comic">Comic</button>
+        <button type="button" data-value="magazine">Magazine</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <h2>Grade</h2>
+      <div class="segmented" id="gradePicker" role="group" aria-label="Grade">
+        <button type="button" data-value="sunset" class="on">Sunset</button>
+        <button type="button" data-value="neon">Neon</button>
+        <button type="button" data-value="midnight">Midnight</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <h2>Export size</h2>
+      <div class="segmented" id="sizePicker" role="group" aria-label="Export size">
+        <button type="button" data-value="portrait" class="on">1080×1350</button>
+        <button type="button" data-value="square">1080×1080</button>
+        <button type="button" data-value="wide">1920×1080</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <h2>Caption</h2>
+      <label class="field">Title
+        <input type="text" id="captionInput" value="Neon Nights" maxlength="42">
+      </label>
+      <label class="field">Sub-caption
+        <input type="text" id="subInput" value="A sunset story" maxlength="60">
+      </label>
+    </div>
+
+    <div class="group">
+      <h2>Panels</h2>
+      <div id="panelRows"></div>
+    </div>
+
+    <button type="button" id="exportBtn" class="export">Export PNG</button>
+    <p class="note">Everything runs locally in your browser. No photo ever leaves this page.</p>
+  </aside>
+</main>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
